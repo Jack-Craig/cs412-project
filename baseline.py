@@ -5,4 +5,4 @@ class Baseline1:
 
     # Should return 
     def getTickerScore(self, tickerData):
-        return tickerData['pct_change']
+        return -tickerData['pct_change']

@@ -1,4 +1,5 @@
 import baseline
+import sma_cross
 import data
 import random
 
@@ -7,7 +8,7 @@ EVAL_CNT = 5
 TRAIN_LEN = 252
 TEST_LEN = 62
 
-algos = [baseline.Baseline1()]
+algos = [baseline.Baseline1(), sma_cross.Baseline2()]
 
 class Evaluator:
     def __init__(self):
@@ -65,5 +66,10 @@ class Evaluator:
         return train
 
 e = Evaluator()
-print(e.eval())
+modelData = e.eval()
+for modelName in modelData:
+    print(f"Model: {modelName}")
+    print(f"\t Average % Change: {modelData[modelName]['avg_pct_change']}")
+    print(f"\t Min % Change: {modelData[modelName]['min_pct_change']}")
+    print(f"\t Max % Change: {modelData[modelName]['max_pct_change']}")
             
