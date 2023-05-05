@@ -2,19 +2,20 @@ import baseline
 import sma_cross
 import data
 import random
+import NN
 
 NUM_STOCKS = 50
 EVAL_CNT = 5
 TRAIN_LEN = 252
 TEST_LEN = 62
 
-algos = [baseline.Baseline1(), sma_cross.Baseline2()]
+algos = [baseline.Baseline1(), sma_cross.Baseline2(), NN.Baseline3()]
 
 class Evaluator:
     def __init__(self):
         pass
 
-    def eval(self, n=5):
+    def eval(self, n=30):
         algoData = {}
         
         # Epoch
